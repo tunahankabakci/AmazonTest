@@ -1,0 +1,24 @@
+*** Settings ***
+Library     SeleniumLibrary
+Variables   ../config/amazonProd.py
+Resource    ./po/AmazonSearch.robot
+Resource    ./po/AmazonProduct.robot
+Resource    ./po/AmazonBasket.robot
+
+
+*** Keywords ***
+Search And Check
+    AmazonSearch.Amazon Search Word    ${SEARCH_WORD}
+    AmazonSearch.Compare The Searched Word    ${SEARCH_WORD}
+
+Open And Check Product
+    AmazonSearch.Open Product
+    AmazonSearch.Check Product
+
+Add To Basket And Check
+    @{PRODUCT}    AmazonProduct.Add Product To Basket
+    AmazonBasket.Go To Basket
+    AmazonBasket.Compare Basket Product Price    ${PRODUCT}[0]
+    AmazonBasket.Compare Basket Product Title    ${PRODUCT}[1]
+
+
