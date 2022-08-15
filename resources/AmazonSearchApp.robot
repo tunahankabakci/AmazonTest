@@ -1,6 +1,5 @@
 *** Settings ***
 Library     SeleniumLibrary
-Variables   ../config/amazonProd.py
 Resource    ./po/AmazonSearch.robot
 Resource    ./po/AmazonProduct.robot
 Resource    ./po/AmazonBasket.robot
@@ -16,9 +15,9 @@ Open And Check Product
     AmazonSearch.Check Product
 
 Add To Basket And Check
-    @{PRODUCT}    AmazonProduct.Add Product To Basket
+    &{PRODUCT}    AmazonProduct.Add Product To Basket
     AmazonBasket.Go To Basket
-    AmazonBasket.Compare Basket Product Price    ${PRODUCT}[0]
-    AmazonBasket.Compare Basket Product Title    ${PRODUCT}[1]
+    AmazonBasket.Compare Basket Product Price    ${PRODUCT.price}
+    AmazonBasket.Compare Basket Product Title    ${PRODUCT.title}
 
 

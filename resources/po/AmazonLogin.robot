@@ -1,7 +1,5 @@
 *** Settings ***
 Library     SeleniumLibrary
-Library    DebugLibrary
-Variables   ../../config/amazonProd.py
 
 
 *** Keywords ***
@@ -43,6 +41,6 @@ Check User Credentials
     FOR    ${TITLE}    IN    @{ACCOUNT_TITLES}
         Wait Until Element Contains    css=.a-unordered-list    ${TITLE}    timeout=60
     END
-    Element Should Contain    css=.a-unordered-list    ${EMAIL}
+    Wait Until Element Contains    css=.a-unordered-list    ${EMAIL}
     ${ACC_EMAIL}    Get Text    css=li:nth-of-type(2) .a-fixed-right-grid-col .a-row:nth-of-type(2)
     Should Be Equal    ${EMAIL}    ${ACC_EMAIL}     #Login olunan mail ile hesap bilgilerindeki mail aynı mı

@@ -5,7 +5,7 @@
 Python 3.x.x
 robotframework
 robotframework-seleniumlibrary
-Chrome Web Driver (lower version from installed Chrome)
+Chrome Web Driver
 ```
 
 
@@ -27,16 +27,16 @@ Chrome Web Driver (lower version from installed Chrome)
 ## Usage
 #### To run a single test file:
 ```
-robot -d reports ./Tests/<FileName.robot>
+robot -d reports --variablefile config/<VariableFile.py> ./Tests/<FileName.robot>
 ```
 
 #### To run a single test case
 ```
-robot -d reports -t <Test Case Name> ./Tests/<FileName.robot>
+robot -d reports -t <Test Case Name> --variablefile config/<VariableFile.py> ./Tests/<FileName.robot>
 ```
 
 #### To run all test cases under "Tests" folder
 ```
-robot -d reports ./Tests/*
+robot -d reports --variablefile config/<VariableFile.py> ./Tests/*
 ```
 

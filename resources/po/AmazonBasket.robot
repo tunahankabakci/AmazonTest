@@ -1,7 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
 Library     String
-Variables   ../../config/amazonProd.py
 
 
 

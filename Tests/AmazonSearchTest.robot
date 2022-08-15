@@ -1,6 +1,5 @@
 *** Settings ***
 Library     SeleniumLibrary
-Variables   ../config/amazonProd.py
 Resource    ../resources/AmazonSearchApp.robot
 Resource    ../resources/AmazonLoginApp.robot
 Resource    ../resources/utilsApp.robot

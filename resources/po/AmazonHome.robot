@@ -1,6 +1,5 @@
 *** Settings ***
 Library     SeleniumLibrary
-Variables   ../../config/amazonProd.py
 
 
 *** Keywords ***
@@ -18,28 +17,28 @@ Accept Cookies If Visible
 
 Check The Homepage Logo
     [Documentation]     Ana sayfaya yonlendiren logo mevcut mu
-    Page Should Contain Link    css=a[href="/ref=nav_logo"]
+    Wait Until Page Contains Element    css=a[href="/ref=nav_logo"]
 
 
 Check The Homepage Carousel
     [Documentation]     Slide element'i mevcut mu
-    Page Should Contain Element    id=desktop-banner
+    Wait Until Page Contains Element    id=desktop-banner
 
 
 Check The Homepage Search Bar
     [Documentation]     Arama textbox mevcut mu
-    Page Should Contain Element    css=#nav-search
+    Wait Until Page Contains Element    css=#nav-search
 
 Check The Homepage Nav Bar
     [Documentation]     Navbar mevcut mu
-    Page Should Contain Element    css=#nav-main
+    Wait Until Page Contains Element    css=#nav-main
 
 
 Check The Homepage Footer
     [Documentation]     Footer başlıkları Footer içinde mevcut mu
     Scroll Element Into View    id=navFooter
     FOR    ${TITLE}    IN   @{FOOTER_TITLES}
-        Element Should Contain     id=navFooter     ${TITLE}
+        Wait Until Element Contains     id=navFooter     ${TITLE}
     END
 
 

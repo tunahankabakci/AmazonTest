@@ -1,7 +1,5 @@
 *** Settings ***
 Library     SeleniumLibrary
-Library    DebugLibrary
-Variables   ../../config/amazonProd.py
 
 
 
@@ -22,9 +20,9 @@ Compare The Searched Word
 
 Open Product
     [Documentation]     Aramada çıkan 5. ürüne tıklar ve başlığını kaydeder
-    ${PRODUCT_TITLE_1}     Get Text    css=div[data-index="5"]>div>div>div>div>div>div:nth-child(1)>h2>a>span
+    ${PRODUCT_TITLE_1}     Get Text    css=div[data-index="7"]>div>div>div>div>div>div:nth-child(1)>h2>a>span
     Set Global Variable    ${PRODUCT_TITLE_1}
-    Click Element    css=div[data-index="5"]>div>div>div>div>div>div:nth-child(1)>h2>a
+    Click Element    css=div[data-index="7"]>div>div>div>div>div>div:nth-child(1)>h2>a
     Wait Until Page Contains Element    id=add-to-cart-button
 
 

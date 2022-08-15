@@ -1,7 +1,7 @@
 *** Settings ***
 Library     SeleniumLibrary
 Library     String
-Variables   ../../config/amazonProd.py
+Library     Collections
 
 
 *** Keywords ***
@@ -11,6 +11,7 @@ Add Product To Basket
     ${PRICE_FRACTION}      Get Text       css=.a-spacing-micro .a-price-fraction
     ${PRICE} =   Catenate    ${PRICE_WHOLE},${PRICE_FRACTION}
     ${PRODUCT_TITLE}      Get Text    css=#productTitle
+    &{PRODUCT}   Create Dictionary     price=${PRICE}      title=${PRODUCT_TITLE}
     Click Element    id=add-to-cart-button
     Wait Until Element Contains    css=#sw-atc-details-single-container    Sepete Eklendi
-    [Return]    ${PRICE}    ${PRODUCT_TITLE}
+    [Return]    &{PRODUCT}
